@@ -1,0 +1,58 @@
+{
+  "workflowApiVersion": "1.1",
+  "metaData": {
+    "icon": "images/icon.png",
+    "category": "message"
+  },
+  "type": "REST",
+  "lang": {
+    "en-US": {
+      "name": "Send SMS (TMA)",
+      "description": "Custom activity to send SMS via T-Mobile.at infrastructure."
+    }
+  },
+  "arguments": {
+    "execute": {
+      "inArguments": [
+        {
+          "smsTarget": "774816814"
+        },
+        {
+          "smsTemplateId": "1234"
+        },
+        {
+          "firstName": "John"
+        },
+        {
+          "lastName": "Doe"
+        }
+      ],
+      "outArguments": [],
+      "url": "https://saco.future.dev.t-mobile.at/marketing/sms/execute",
+      "useJwt": true,
+      "customerKey": "rba_sms_key",
+      "timeout": 10000
+    }
+  },
+  "configurationArguments": {
+    "publish": {
+      "url": "https://saco.future.dev.t-mobile.at/marketing/sms/notification?type=publish",
+      "useJwt": true,
+      "customerKey": "rba_sms_key",
+      "timeout": 10000
+    }
+  },
+  "wizardSteps": [
+    {
+      "label": "SMS Configuration",
+      "key": "step1"
+    }
+  ],
+  "userInterfaces": {
+    "configModal": {
+      "height": 200,
+      "width": 300,
+      "fullscreen": true
+    }
+  }
+}
